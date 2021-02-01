@@ -9,20 +9,22 @@ but also with some minor differences.
 
 this library is till bleeding edge, so use it at your own risk. :D
 
+This fork tries to update the code to current GO 1.15 and fix found issues. Such as filters not working with strings.
+
 **Golang Version Required**: 1.5+
 
 Get Started
 ------------
 
 ```bash
-go get github.com/oliveagle/jsonpath
+go get github.com/dosimeta/jsonpath
 ```
 
 example code:
 
 ```go
 import (
-    "github.com/oliveagle/jsonpath"
+    "github.com/dosimeta/jsonpath"
     "encoding/json"
 )
 
