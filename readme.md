@@ -9,9 +9,9 @@ but also with some minor differences.
 
 this library is till bleeding edge, so use it at your own risk. :D
 
-This fork tries to update the code to current GO 1.15 and fix found issues. Such as filters not working with strings.
+This fork updates the code to current GO 1.15.
 
-**Golang Version Required**: 1.5+
+**Golang Version Required**: 1.15
 
 Get Started
 ------------
