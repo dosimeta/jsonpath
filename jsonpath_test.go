@@ -141,6 +141,24 @@ func Test_jsonpath_JsonPathLookup_filter(t *testing.T) {
 	t.Log(err, res)
 }
 
+func Test_jsonpath_JsonPathLookup_filter_string_compare(t *testing.T) {
+	jpath := "$.store.book[?(@.isbn == '0-395-19395-8')].title"
+	res, err := JsonPathLookup(json_data, jpath)
+	if err != nil {
+		t.Errorf("error during lookup of '%s': %s", err, jpath)
+	}
+
+	if res_v, ok := res.([]interface{}); ok == true {
+		if res_v[0].(string) != "The Lord of the Rings" {
+			t.Errorf("error: %v", res)
+		} else {
+			fmt.Println("lookup by isbn string - OK")
+		}
+	} else {
+		t.Errorf("error: '%s' did not match", jpath)
+	}
+}
+
 func Test_jsonpath_authors_of_all_books(t *testing.T) {
 	query := "store.book[*].author"
 	expected := []string{

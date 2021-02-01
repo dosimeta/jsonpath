@@ -654,9 +654,11 @@ func get_lp_v(obj, root interface{}, lp string) (interface{}, error) {
 
 func eval_filter(obj, root interface{}, lp, op, rp string) (res bool, err error) {
 	lp_v, err := get_lp_v(obj, root, lp)
-
-	if op == "exists" {
-		return lp_v != nil, nil
+	// shortcut, when lp_v is nil
+	if lp_v == nil {
+		return false, nil
+	} else if op == "exists" {
+		return true, nil
 	} else if op == "=~" {
 		return false, fmt.Errorf("not implemented yet")
 	} else {
